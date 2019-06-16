@@ -1,0 +1,14 @@
+﻿@using DnDCharacterSheet.Shared;
+
+<div class="Dnd5Border">
+    <h3 style="text-align: center">Weapon, Armor and Tools profiencies</h3>
+    @foreach (var prof in equipments)
+    {
+
+    }
+</div>
+
+@functions
+{
+    [Parameter] List<Equipment> equipments { get; set; }
+}

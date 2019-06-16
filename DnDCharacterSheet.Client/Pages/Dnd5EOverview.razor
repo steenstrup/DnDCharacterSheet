@@ -1,0 +1,34 @@
+﻿@using DnDCharacterSheet.Shared;
+
+    <div class="Dnd5Border" style="font-size: 19px; font-weight: bold; margin-bottom:4px">
+        <p>Armor Class @characther.ArmorClass</p>
+        <p>Initative @characther.Initiative</p>
+        <p>Speed @characther.Speed</p>
+        <p>Hit Point @characther.HitPoint</p>
+        <p>Passive Perception @characther.PassivePerception</p>
+        <p>Proficiency Bonus @characther.ProfBonus</p>
+
+        <p>
+            Hit Dice
+            @for (int i = 0; i < characther.HitDice; i++)
+            {
+                <i class="fa fa-circle-o" style="font-size: 16px;"></i>
+            }
+        </p>
+        @if (characther.Luck > 0)
+        {
+            <p>
+                Luck
+                @for (int i = 0; i < characther.Luck; i++)
+                {
+                    <i class="fa fa-circle-o" style="font-size: 16px;"></i>
+                }
+            </p>
+        }
+
+    </div>
+
+@functions
+{
+    [Parameter] Characther characther { get; set; }
+}

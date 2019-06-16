@@ -1,0 +1,24 @@
+﻿@using DnDCharacterSheet.Shared;
+
+<link href="~/Content/Style.css" rel="stylesheet">
+
+<div class="Dnd5Border">
+    <h3 style="text-align: center">Equipment</h3>
+    @foreach (var equipment in equipments.Where(x => !x.Magical))
+    {
+        <p>@equipment.Name</p>
+    }
+
+    @foreach (var equipment in equipments.Where(x => x.Magical))
+    {
+        <div style="color:goldenrod">
+            <p> @equipment.Name.ToUpper() </p>
+        </div>
+    }
+</div>
+
+
+@functions
+{
+    [Parameter] List<Equipment> equipments { get; set; }
+}

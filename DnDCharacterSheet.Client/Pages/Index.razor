@@ -1,0 +1,42 @@
+﻿@page "/"
+
+@using DnDCharacterSheet.Client.Services;
+@inject AppState state
+
+<div class="grid-container">
+    <div class="item1">
+        <Dnd5EName name=@state.Characther.Name />
+        <Dnd5EDescription characther=state.Characther />
+        <Dnd5EOverview characther=state.Characther />
+        <Dnd5EStats stats=state.Characther.Stats />
+    </div>
+    <div class="item3">
+        <Dnd5EImage image=@state.Characther.ImageUrl />
+        <Dnd5ESkill skills=state.Characther.Skills />
+        <Dnd5ESavingThrow SavingThrows=state.Characther.SavingThrows />
+    </div>
+
+
+    <div class="item4">
+        <!--
+        <Dnd5EAttaksAndSpellCasting />
+        -->
+        <Dnd5ELanguages languages=state.Characther.Languages />
+        <Dnd5EFeaturesAndTraits featuresAndTraits=state.Characther.FeaturesAndTrains />
+
+    </div>
+
+    <div class="item5">
+        <Dnd5EWeaponArmorAndTools equipments=state.Characther.Weapon />
+        <Dnd5EEquipment equipments=state.Characther.Equipment />
+    </div>
+
+</div>
+
+@functions {
+    protected override void OnInit()
+    {
+        state.OnChange += StateHasChanged;
+    }
+
+}

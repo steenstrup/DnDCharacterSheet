@@ -1,0 +1,35 @@
+﻿@using DnDCharacterSheet.Shared;
+
+<div class="Dnd5Border">
+    <h3 style="text-align: center">Saving Throws</h3>
+    @foreach (var savingThrow in savingThrows)
+    {
+        <p>
+            @{
+                if (0 < @savingThrow.Expert)
+                {
+                    <i class="fa fa-circle" style="font-size: 16px;"></i>
+                }
+                else
+                {
+                    <i class="fa fa-circle-o" style="font-size: 16px;"></i>
+                }
+                <span> &nbsp; </span>
+                if (@savingThrow.Expert < 0)
+                {
+                    <span style="font-size: 20px; text-decoration: underline;"> @savingThrow.GetBonus() &nbsp;</span>
+                }
+                else
+                {
+                    <span style="font-size: 20px; text-decoration: underline;"> &nbsp; @savingThrow.GetBonus() &nbsp;</span>
+                }
+            }
+            @savingThrow.Decription
+        </p>
+    }
+</div>
+
+@functions
+{
+    [Parameter] List<SavingThrow> savingThrows { get; set; }
+}

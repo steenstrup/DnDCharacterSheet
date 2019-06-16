@@ -1,0 +1,46 @@
+﻿@using DnDCharacterSheet.Shared;
+
+<div class="Dnd5Border">
+    <h3 style="text-align: center">Skills</h3>
+    @foreach (var skill in skills)
+    {
+        <p>
+            @{
+                if (1 < @skill.Expert)
+                {
+                    <i class="fa fa-circle" style="font-size: 16px;"></i>
+                    <i class="fa fa-circle" style="font-size: 16px;"></i>
+                }
+                else if (0 < @skill.Expert)
+                {
+                    <i class="fa fa-circle" style="font-size: 16px;"></i>
+                    <i class="fa fa-circle-o" style="font-size: 16px;"></i>
+
+                }
+                else
+                {
+                    <i class="fa fa-circle-o" style="font-size: 16px;"></i>
+                    <i class="fa fa-circle-o" style="font-size: 16px;"></i>
+                }
+                <span> &nbsp; </span>
+
+                if (@skill.GetPoints() > 9)
+                {
+                    <span style="font-size: 20px; text-decoration: underline;"> &nbsp; @skill.GetPoints() &nbsp;</span>
+                }
+                else
+                {
+
+                    <span style="font-size: 20px; text-decoration: underline;"> &nbsp; @skill.GetPoints() &nbsp;&nbsp;</span>
+                }
+
+            }
+            @skill.Decription
+        </p>
+    }
+</div>
+
+@functions
+{
+    [Parameter] List<Skill> skills { get; set; }
+}

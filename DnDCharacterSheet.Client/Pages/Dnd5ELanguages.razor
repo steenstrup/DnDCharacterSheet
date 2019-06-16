@@ -1,0 +1,12 @@
+﻿<div class="Dnd5Border">
+    <h3 style="text-align: center">Languages</h3>
+    @foreach (var language in languages)
+    {
+        <p>@language</p>
+    }
+</div>
+
+@functions
+{
+    [Parameter] List<string> languages { get; set; }
+}

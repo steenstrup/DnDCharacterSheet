@@ -1,0 +1,43 @@
+﻿@using DnDCharacterSheet.Client.Services;
+@inject AppState state
+
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">DnDCharacterSheet</a>
+    <button class="navbar-toggler" onclick="@ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" onclick="@ToggleNavMenu">
+    <ul class="nav flex-column">
+        @foreach (var cha in state.Characthers)
+        {
+            <li onclick="@(() => state.SetActiveCharacther(@cha.id))" class="nav-item px-3">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-arrow-circle-right" aria-hidden="true"></span> @cha.Name
+                </NavLink>
+            </li>
+        }
+        <li onclick="@state.NewCharacther" class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-arrow-circle-bottom" aria-hidden="true"></span> New characther
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@functions {
+    bool collapseNavMenu = true;
+
+    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override void OnInit()
+    {
+        state.OnChange += StateHasChanged;
+    }
+}

@@ -1,0 +1,43 @@
+﻿@using DnDCharacterSheet.Shared;
+
+    <div class="Dnd5Border" style="height:400px">
+        <h3 style="text-align: center">Stats</h3>
+        @if (stats.Count == 6)
+        {
+            <div style="float:left; width:100px">
+                <p style="text-align: center">@stats[0].Type</p>
+                <p style="text-align: center; font-size: 30px; line-height: 0px">@stats[0].Value</p>
+                <p style="text-align: center">@stats[0].GetBonus()</p>
+            </div>
+            <div style="float:left; width:100px">
+                <p style="text-align: center">@stats[1].Type</p>
+                <p style="text-align: center; font-size: 30px; line-height: 0px">@stats[1].Value</p>
+                <p style="text-align: center">@stats[1].GetBonus()</p>
+            </div>
+            <div style="float:left; width:100px">
+                <p style="text-align: center">@stats[2].Type</p>
+                <p style="text-align: center; font-size: 30px; line-height: 0px">@stats[2].Value</p>
+                <p style="text-align: center">@stats[2].GetBonus()</p>
+            </div>
+            <div style="float:left; width:100px">
+                <p style="text-align: center">@stats[3].Type</p>
+                <p style="text-align: center; font-size: 30px; line-height: 0px">@stats[3].Value</p>
+                <p style="text-align: center">@stats[3].GetBonus()</p>
+            </div>
+            <div style="float:left; width:100px">
+                <p style="text-align: center">@stats[4].Type</p>
+                <p style="text-align: center; font-size: 30px; line-height: 0px">@stats[4].Value</p>
+                <p style="text-align: center">@stats[4].GetBonus()</p>
+            </div>
+            <div style="float:left; width:100px">
+                <p style="text-align: center">@stats[5].Type</p>
+                <p style="text-align: center; font-size: 30px; line-height: 0px">@stats[5].Value</p>
+                <p style="text-align: center">@stats[5].GetBonus()</p>
+            </div>
+        }
+    </div>
+
+@functions
+{
+    [Parameter] List<Stat> stats { get; set; }
+}

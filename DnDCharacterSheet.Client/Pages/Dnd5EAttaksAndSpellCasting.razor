@@ -1,0 +1,15 @@
+﻿@using DnDCharacterSheet.Shared;
+
+<div class="Dnd5Border">
+    <h3 style="text-align: center">Attaks and SpellCasting</h3>
+    @foreach (var equipment in weapons.Where(x => x.IsEquipped).Where(x => x.Damage != null))
+    {
+        <p>@equipment.Name : +@(equipment.WeaponBonus + attackBonus)| @equipment.Damage  @equipment.DamageType</p>
+    }
+</div>
+
+@functions
+{
+    [Parameter] List<Equipment> weapons { get; set; }
+    [Parameter] int attackBonus { get; set; }
+}

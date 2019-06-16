@@ -1,0 +1,12 @@
+﻿<div class="Dnd5Border">
+    <h3 style="text-align: center;">Features & Traits</h3>
+    @foreach (var featuresAndTrait in featuresAndTraits)
+    {
+        <p>@featuresAndTrait</p>
+    }
+</div>
+
+@functions
+{
+    [Parameter] List<string> featuresAndTraits { get; set; }
+}

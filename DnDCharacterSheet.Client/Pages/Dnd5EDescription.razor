@@ -1,0 +1,12 @@
+﻿@using DnDCharacterSheet.Shared;
+
+<div class="Dnd5Border">
+    <h3>@characther.PlayerName</h3>
+    <h3>@characther.Race @characther.Background</h3>
+    <h3>@characther.GetClassseOverview()</h3>
+</div>
+
+@functions
+{
+    [Parameter] Characther characther { get; set; }
+}
